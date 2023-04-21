@@ -1,1 +1,14 @@
 /.metadata/
+Day1/.settings/org.eclipse.core.resources.prefs
+*.class
+Day1/target/classes/META-INF/maven/com.example/Day1/pom.xml
+Day1/target/classes/META-INF/maven/com.example/Day1/pom.properties
+Day1/.project
+Day1/.settings/org.eclipse.jdt.core.prefs
+Day1/.settings/org.eclipse.m2e.core.prefs
+Day1/.settings/org.springframework.ide.eclipse.prefs
+Day1/HELP.md
+Day1/target/classes/application.properties
+Day1/target/classes/META-INF/MANIFEST.MF
+Day1/.mvn/wrapper/maven-wrapper.properties
+Day1/.settings/org.eclipse.jdt.apt.core.prefs
