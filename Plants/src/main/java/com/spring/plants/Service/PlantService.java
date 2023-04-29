@@ -5,6 +5,9 @@ import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.spring.plants.Model.Plant;
@@ -43,13 +46,28 @@ public class PlantService {
 			return null;
 		}
  	}
-	public String deleteCar(int id) {
+
+	public String deletePlant(int id) {
 		repos.deleteById(id);
 		return id+ " deleted ! " ;
 	}
-	public String deletePlant(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	//sorting
+	public List<Plant> sortDesc(String aplant)
+	{
+		return repos.findAll(Sort.by(aplant).ascending());
 	}
 	
+	//Pagination
+	public List<Plant> paginationData(int pageNu, int pageSize)
+	{
+		Page<Plant> a=repos.findAll(PageRequest.of(pageNu, pageSize));
+		return a.getContent();
+	}
+	//Pagination
+	public List<Plant> paginationDataSort(int pageNu, int pageSize,String col)
+	{
+		Page<Plant> a=repos.findAll(PageRequest.of(pageNu, pageSize,Sort.by(col).ascending()));
+		return a.getContent();
+	}
 }

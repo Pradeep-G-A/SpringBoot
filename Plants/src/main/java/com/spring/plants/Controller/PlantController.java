@@ -40,7 +40,29 @@ public class PlantController {
 
 	@DeleteMapping("/{id}")
 	public String delete(@PathVariable int id) {
-		return servicee.deletePlant(id);
+		 servicee.deletePlant(id);
+		 return "Deleted";
+	}
+	
+	//Sort by Descending
+	@GetMapping("/sortdes/{aplant}")
+	public List<Plant> sortPlants(@PathVariable("aplant") String aplant)
+	{
+		return servicee.sortDesc(aplant);
+	}
+	
+	//pagination
+	@GetMapping("/pagination/{aheight}/{arateofgrowth}")
+	public List<Plant> paginationData(@PathVariable("aheight") int height, @PathVariable("arateofgrowth") int rateofgrowth)
+	{
+		return servicee.paginationData(height, rateofgrowth);
+	}
+	
+	//pagination and sorting
+	@GetMapping("/paginationSorting/{aheight}/{arateofgrowth}/{aplant}")
+	public List<Plant> paginationSorting(@PathVariable("aheight") int height,@PathVariable("arateofgrowth") int rateofgrowth ,@PathVariable("aplant") String plant)
+	{
+		return servicee.paginationDataSort(height, rateofgrowth, plant);
 	}
 	
 }
