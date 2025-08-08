@@ -1,16 +1,17 @@
 package com.example.Day1;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
 public class Message {
-	@Value(" hidgvfdghfghg")
+	@Value(" hidgvfdvnvdfknbjgndghfghg")
 	private String data;
 	@RequestMapping("/")
-	@ResponseBody
+
 	public String Msg() {
 		return"Hello"+data;
 	}

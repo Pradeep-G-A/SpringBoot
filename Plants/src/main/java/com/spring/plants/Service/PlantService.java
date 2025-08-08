@@ -24,9 +24,9 @@ public class PlantService {
 	public Optional<Plant> getPlantbtId(int id) {
 		return repos.findById(id);
 	}
-	public Plant addPlant (Plant plant) {
-		return repos.save(plant);
-	}
+	
+	
+	
 	public Plant editPlant(int id,Plant plant) {
 		Plant planty = repos.findById(id).orElse(null);
 		if(planty != null) {
@@ -64,10 +64,19 @@ public class PlantService {
 		Page<Plant> a=repos.findAll(PageRequest.of(pageNu, pageSize));
 		return a.getContent();
 	}
-	//Pagination
+	//Pagination & Sorting
 	public List<Plant> paginationDataSort(int pageNu, int pageSize,String col)
 	{
 		Page<Plant> a=repos.findAll(PageRequest.of(pageNu, pageSize,Sort.by(col).ascending()));
 		return a.getContent();
 	}
+	public Plant saveuser(Plant p) {
+		return repos.save(p);
+		
+		
+	}
+	
+	
+	
+	
 }
